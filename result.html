@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询结果 - 寰宇（中国）检测认证服务中心</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        /* 标题栏 */
+        .header {
+            background: linear-gradient(145deg, 
+                #6dd5ed 0%,
+                #2193b0 60%,
+                #0d4d73 100%
+            );
+            padding: 28px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .cn-title {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .en-title {
+            font-size: 14px;
+            opacity: 0.95;
+            letter-spacing: 0.8px;
+        }
+
+        /* 结果卡片 */
+        .result-card {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .result-table td {
+            padding: 14px;
+            border: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .result-table td:first-child {
+            width: 150px;
+            background: #f8f8f8;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .valid-status {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .two-column {
+            column-count: 2;
+            column-gap: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .result-card {
+                margin: 20px auto;
+                padding: 20px;
+            }
+            .two-column {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="cn-title">寰宇（中国）检测认证服务中心</div>
+        <div class="en-title">Universal (China) Detection Certification Service</div>
+    </div>
+
+    <div class="result-card">
+        <table class="result-table" id="resultTable">
+            <!-- 动态内容区 -->
+        </table>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+    // 获取URL参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const company = decodeURIComponent(urlParams.get('company'));
+    const certId = urlParams.get('certId');
+
+    // 查询匹配数据
+    const certData = certDatabase.find(item => 
+        item.company === company && 
+        item.certId === certId
+    );
+
+    if (certData) {
+        const tableContent = `
+        <tr>
+            <td>公司名称</td>
+            <td>${certData.company}</td>
+        </tr>
+        <tr>
+            <td>证书编号</td>
+            <td>${certData.certId}</td>
+        </tr>
+        <tr>
+            <td>认证类别</td>
+            <td>${certData.info.category}</td>
+        </tr>
+        <tr>
+            <td>证书状态</td>
+            <td class="${certData.info.status === '有效' ? 'valid-status' : 'expired-status'}">
+                ${certData.info.status}
+            </td>
+        </tr>
+        <tr>
+            <td>认证范围</td>
+            <td>
+                <div class="two-column">
+                    ${certData.info.scope.join('、')}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>发证日期</td>
+            <td>${certData.info.issueDate}</td>
+        </tr>
+        <tr>
+            <td>有效期至</td>
+            <td>${certData.info.expiryDate}</td>
+        </tr>
+        `;
+        document.getElementById('resultTable').innerHTML = tableContent;
+    } else {
+        alert("证书信息不存在，正在返回查询页面...");
+        window.location.href = "index.html";
+    }
+    </script>
+</body>
+</html>
