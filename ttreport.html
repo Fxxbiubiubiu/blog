@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>检测报告</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* 主容器 */
+        .report-container {
+            max-width: 375px;
+            margin: 20px auto;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        /* 头部信息 */
+        .company-header {
+            padding: 16px;
+            border-bottom: 1px solid #eee;
+        }
+        .company-name {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .company-enname {
+            font-size: 12px;
+            color: #666;
+        }
+        .valid-tag {
+            color: #1677ff;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* 检测项目容器 */
+        .item-group {
+            padding: 0 16px;
+        }
+
+        /* 单个检测项 */
+        .info-item {
+            padding: 14px 0;
+            border-bottom: 1px dashed #eee; /* 虚线分隔 */
+        }
+
+        /* 上下结构布局 */
+        .item-title {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        .item-content {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* 特殊内容样式 */
+        .download-link {
+            color: #1677ff !important;
+            text-decoration: none;
+            display: block;
+            padding: 14px 0;
+        }
+        .empty-content {
+            color: #999 !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 完整报告容器 -->
+    <div class="report-container">
+        <!-- 公司信息区块 -->
+        <div class="company-header">
+            <div class="company-name">上海建科检验有限公司</div>
+            <div class="company-enname">Shanghai Jianke Technical Assessment of Construction Co., Ltd.</div>
+            <div class="valid-tag">该报告有效</div>
+        </div>
+
+        <!-- 检测项目组 -->
+        <div class="item-group">
+            <!-- 检测机构 -->
+            <div class="info-item">
+                <div class="item-title">检测机构</div>
+                <div class="item-content">国家建筑工程材料质量检验检测中心</div>
+            </div>
+
+            <!-- 报告信息 -->
+            <div class="info-item">
+                <div class="item-title">报告编号</div>
+                <div class="item-content">TL226-250594</div>
+            </div>
+
+            <!-- 签发日期 -->
+            <div class="info-item">
+                <div class="item-title">签发日期</div>
+                <div class="item-content">2025-04-01</div>
+            </div>
+
+            <!-- 委托信息 -->
+            <div class="info-item">
+                <div class="item-title">委托编号</div>
+                <div class="item-content">TL22-251069</div>
+            </div>
+
+            <!-- 日期信息 -->
+            <div class="info-item">
+                <div class="item-title">委托日期/抽样日期</div>
+                <div class="item-content">2025-02-28</div>
+            </div>
+
+            <!-- 委托单位 -->
+            <div class="info-item">
+                <div class="item-title">委托单位</div>
+                <div class="item-content">阿克苏诺贝尔装饰涂料（廊坊）有限公司</div>
+            </div>
+
+            <!-- 工程信息 -->
+            <div class="info-item">
+                <div class="item-title">工程名称</div>
+                <div class="item-content empty-content">无</div>
+            </div>
+
+            <!-- 工程部位 -->
+            <div class="info-item">
+                <div class="item-title">工程部位</div>
+                <div class="item-content empty-content">无</div>
+            </div>
+
+            <!-- 样品信息 -->
+            <div class="info-item">
+                <div class="item-title">样品编号</div>
+                <div class="item-content">TL22-251069-01</div>
+            </div>
+
+            <!-- 产品信息 -->
+            <div class="info-item">
+                <div class="item-title">样品名称</div>
+                <div class="item-content">肌理漆（面漆）</div>
+            </div>
+
+            <!-- 规格型号 -->
+            <div class="info-item">
+                <div class="item-title">规格型号</div>
+                <div class="item-content">内墙合格品</div>
+            </div>
+
+            <!-- 生产单位 -->
+            <div class="info-item">
+                <div class="item-title">生产单位</div>
+                <div class="item-content">阿克苏诺贝尔装饰涂料（廊坊）有限公司</div>
+            </div>
+
+            <!-- 检验依据 -->
+            <div class="info-item">
+                <div class="item-title">检验依据</div>
+                <div class="item-content">《合成树脂乳液内墙涂料》</div>
+            </div>
+
+            <!-- 下载链接 -->
+            报告下载
+        </div>
+    </div>
+</body>
+</html>
